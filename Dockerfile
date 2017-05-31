@@ -1,11 +1,11 @@
 
 FROM centos
 RUN yum -y update
-RUN yum install java-1.8.0-openjdk
+RUN yum install java openjdk
 RUN yum install -y wildfly
 ADD mkdir -p /opt/wildfly
 RUN cd /opt/
-RUN tar zxvf /root/wildfly-9.0.1.Final.tar.gz
+RUN tar zxvf /root/wildfly-10.0.0.Final.tar.gz
 RUN firewall-cmd --zone=public --add-port=8080/tcp --permanent
 RUN firewall-cmd --zone=public --add-port=9990/tcp --permanent
 RUN firewall-cmd --reload
